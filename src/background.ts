@@ -12,6 +12,7 @@ chrome.runtime.onMessage.addListener(async (message) => {
 
     await chrome.scripting.executeScript({
       target: { tabId: tab.id },
+      world: "MAIN",
       func: startEyeDropper
     });
 
