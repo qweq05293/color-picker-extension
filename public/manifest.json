@@ -9,8 +9,7 @@
     "default_title": "__MSG_extension_name__"
   },
   "permissions": [
-    "scripting",
-    "activeTab",
+    "storage",
     "clipboardWrite"
   ],
   "icons": {
