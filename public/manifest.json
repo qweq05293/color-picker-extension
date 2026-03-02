@@ -13,10 +13,6 @@
     "activeTab",
     "clipboardWrite"
   ],
-  "background": {
-    "service_worker": "background.js",
-    "type": "module"
-  },
   "icons": {
     "128": "icon128.png"
   }

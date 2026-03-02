@@ -6,19 +6,32 @@ import { Button } from "./components/ui/button";
 export function App() {
     const [color, setColor] = useState<string | null>(null);
 
-    const pickColor = () => {
-        console.log("start color picker send msg")
-        chrome.runtime.sendMessage({
-            type: "START_COLOR_PICK"
-        });
-    };
+   const pickColor = async () => {
 
-    chrome.runtime.onMessage.addListener((message) => {
-        console.log("get message", message)
-        if (message.type === "COLOR_PICKED") {
-            setColor(message.color);
-        }
-    });
+    if (!("EyeDropper" in window)) {
+      alert("Not supported");
+      return;
+    }
+
+    const eyeDropper = new EyeDropper();
+
+    try {
+
+      const result = await eyeDropper.open();
+
+      setColor(result.sRGBHex);
+
+      await chrome.storage.local.set({
+        lastColor: result.sRGBHex
+      });
+
+    } catch {
+      console.log("cancelled");
+    }
+
+  };
+
+
     return (
         <div className="p-4 w-85 flex flex-col gap-4 bg-radial-primary">
             {/* Header */}
