@@ -31,6 +31,7 @@ export function App() {
                 <ModeToggle />
             </div>
             <Button
+                variant="default"
                 onClick={pickColor}
             >
                 Pick Color
