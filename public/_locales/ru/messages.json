@@ -4,5 +4,8 @@
   },
   "extension_description": {
     "message": "Простое расширение для выбора цветов с экрана"
+  },
+  "pick_color": {
+    "message": "Выбрать цвет"
   }
 }

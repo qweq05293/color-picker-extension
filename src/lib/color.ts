@@ -58,8 +58,7 @@ export function rgbToHsl(r: number, g: number, b: number) {
   }
   return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
 }
-export function hexToOklch(hex: string) {
-  const { r, g, b } = hexToRgb(hex)
+export function hexToOklch(r: number, g: number, b: number) {
 
   // Convert RGB to XYZ
   let x = r * 0.4124564 + g * 0.2126729 + b * 0.0193339;
