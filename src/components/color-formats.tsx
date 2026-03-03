@@ -1,6 +1,4 @@
 import { hexToOklch, hexToRgb, rgbToHsl, toTailwindClass } from "@/lib/color";
-import { Button } from "./ui/button";
-import { copyTextToClipboard } from "@/lib/clipboard";
 import { CopyButton } from "./copy-button";
 
 export function ColorFormats({ hex }: { hex: string }) {
