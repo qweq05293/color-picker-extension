@@ -7,5 +7,14 @@
   },
   "pick_color": {
     "message": "Выбрать цвет"
+  },
+  "edit_color": {
+    "message": "Редактировать цвет"
+  },
+  "save_in_history": {
+    "message": "Сохранить в истории"
+  },
+  "cancel": {
+    "message": "Отмена"
   }
 }

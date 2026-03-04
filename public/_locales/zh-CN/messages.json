@@ -7,5 +7,14 @@
   },
   "pick_color": {
     "message": "拾取颜色"
+  },
+  "edit_color": {
+    "message": "编辑颜色"
+  },
+  "save_in_history": {
+    "message": "保存到历史记录"
+  },
+  "cancel": {
+    "message": "取消"
   }
 }

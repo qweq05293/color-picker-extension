@@ -21,29 +21,29 @@ export function ColorEditor({ initialColor, onChange, onSave }: Props) {
           style={{ backgroundColor: color.hex }}
         />
         <span className="text-sm font-medium text-foreground/90 transition-colors duration-200 group-hover:text-primary">
-          Edit Color
+          {chrome.i18n.getMessage("edit_color")}
         </span>
         <Edit className="w-5 h-5 text-primary transition-transform duration-200 group-hover:rotate-12 group-hover:scale-110" />
       </SheetTrigger>
       <SheetContent side="right" >
         <SheetHeader>
-          <SheetTitle>Edit Color</SheetTitle>
+          <SheetTitle> {chrome.i18n.getMessage("edit_color")}</SheetTitle>
+          <SheetDescription>
+            <ColorPicker
+              // hideInput={["rgb", "hsv"]}
+              color={color}
+              onChange={(c) => {
+                setColor(c);
+                onChange(c.hex);
+              }} />
+          </SheetDescription>
         </SheetHeader>
-        <SheetDescription>
-          <ColorPicker
-            hideInput={["rgb", "hsv"]}
-            color={color}
-            onChange={(c) => {
-              setColor(c);
-              onChange(c.hex);
-            }} />
-        </SheetDescription>
         <SheetFooter>
           <SheetClose asChild>
-            <Button onClick={() => { onSave(color.hex) }}>Save in history</Button>
+            <Button onClick={() => { onSave(color.hex) }}> {chrome.i18n.getMessage("save_in_history")}</Button>
           </SheetClose>
           <SheetClose asChild>
-            <Button variant="outline">Cancel</Button>
+            <Button variant="outline"> {chrome.i18n.getMessage("cancel")}</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>

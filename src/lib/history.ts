@@ -7,9 +7,9 @@ export function calcMaxHistory(isPro: boolean) {
 
 export function getHistory(setHistory: (history: string[]) => void, onLoaded?: (firstColor: string) => void) {
   chrome.storage.local.get(["history"], (result) => {
-    const data = result.history as string[] ;
+    const data = result.history as string[];
     if (data) setHistory(result.history as string[]);
-    if( data.length > 0 && onLoaded) onLoaded(data[0]);
+    if (data.length > 0 && onLoaded) onLoaded(data[0]);
   });
 }
 
@@ -37,3 +37,8 @@ export function downloadHistory(history: string[]) {
   a.click();
   URL.revokeObjectURL(url);
 };
+
+export function clearHistory(setHistory: (history: string[]) => void,) {
+  chrome.storage.local.remove("history");
+  setHistory([])
+}

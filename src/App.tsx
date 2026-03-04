@@ -3,7 +3,7 @@ import { Title } from "./components/app-title";
 import { ModeToggle } from "./components/mode-toggle";
 import { Button } from "./components/ui/button";
 import { SidebarClose } from "lucide-react";
-import { calcMaxHistory, downloadHistory, getHistory, saveHistory } from "./lib/history";
+import { calcMaxHistory, clearHistory, downloadHistory, getHistory, saveHistory } from "./lib/history";
 import { pickColor } from "./lib/color";
 import { Separator } from "./components/ui/separator";
 import { ColorEditor } from "./components/color-editor";
@@ -52,24 +52,38 @@ export function App() {
             <div>
                 <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-semibold">
-                        History ({history.length}/{maxHistory})
+                        Colors History ({history.length}/{maxHistory})
                     </span>
-                    {isPro && (
-                        <Button size="sm" onClick={() => downloadHistory(history)}>
-                            Download
+                    <div className="flex gap-2">
+                        <Button size="sm" onClick={() => clearHistory(setHistory)}>
+                            Clear
                         </Button>
-                    )}
+                        {isPro && (
+                            <Button size="sm" onClick={() => downloadHistory(history)}>
+                                Download
+                            </Button>
+                        )}
+
+                    </div>
+
                 </div>
 
                 <div className="grid grid-cols-8 gap-2">
-                    {history.map((c) => (
-                        <div
-                            key={c}
-                            onClick={() => setColor(c)}
-                            className="w-6 h-6 rounded border cursor-pointer"
-                            style={{ backgroundColor: c }}
-                        />
-                    ))}
+                    {history.map((c) => {
+                        const isActive = c === color; // выбранный цвет
+
+                        return (
+                            <div
+                                key={c}
+                                onClick={() => setColor(c)}
+                                className={`
+          w-6 h-6 rounded-full cursor-pointer transition-all duration-200
+          ${isActive ? "ring-2 ring-primary ring-offset-1 shadow-lg scale-110" : "hover:scale-105 hover:shadow-md"}
+        `}
+                                style={{ backgroundColor: c }}
+                            />
+                        );
+                    })}
                 </div>
 
                 {/* {!isPro && history.length >= MAX_FREE && (

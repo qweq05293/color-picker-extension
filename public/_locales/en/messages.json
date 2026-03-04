@@ -7,5 +7,14 @@
   },
   "pick_color": {
     "message": "Pick Color"
+  },
+  "edit_color": {
+    "message": "Edit Color"
+  },
+  "save_in_history": {
+    "message": "Save in history"
+  },
+  "cancel":{
+    "message": "Cancel"
   }
 }
