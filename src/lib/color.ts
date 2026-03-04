@@ -31,6 +31,34 @@ export function hexToRgb(hex: string) {
   return { r, g, b };
 }
 
+export function rgbToHsv(r: number, g: number, b: number) {
+  r /= 255;
+  g /= 255;
+  b /= 255;
+  const max = Math.max(r, g, b),
+    min = Math.min(r, g, b);
+  let h = 0,
+    s = 0,
+    v = max;
+  if (max !== min) {
+    const d = max - min;
+    s = d / max;
+    switch (max) {
+      case r:
+        h = (g - b) / d + (g < b ? 6 : 0);
+        break;
+      case g:
+        h = (b - r) / d + 2;
+        break;
+      case b:
+        h = (r - g) / d + 4;
+        break;
+    }
+    h /= 6;
+  }
+  return { h: Math.round(h * 360), s: Math.round(s * 100), v: Math.round(v * 100) };
+}
+
 export function rgbToHsl(r: number, g: number, b: number) {
   r /= 255;
   g /= 255;

@@ -9,7 +9,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         {children}
         <Toaster theme={theme as "light" | "dark" | "system"}
-          richColors
           position="top-center" />
       </ThemeProvider>
     </>
