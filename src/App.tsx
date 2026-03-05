@@ -8,11 +8,14 @@ import { pickColor } from "./lib/color";
 import { Separator } from "./components/ui/separator";
 import { ColorEditor } from "./components/color-editor";
 import { ColorFormats } from "./components/color-formats";
+import { RateExtensionModal } from "./components/rate-extension-modal";
+import { registerColorPick } from "./lib/rate";
 
 export function App() {
   const [color, setColor] = useState<string | null>(INIT_COLOR);
   const [history, setHistory] = useState<string[]>([INIT_COLOR]);
   const [isPro] = useState<boolean>(true);
+  const [showRateModal, setShowRateModal] = useState(false);
 
   const maxHistory = calcMaxHistory(isPro);
 
@@ -21,9 +24,20 @@ export function App() {
       setColor(color);
     });
   }, []);
+  const handlePickColor = async () => {
+    await pickColor(history, maxHistory, setHistory, setColor);
+    const shouldShow = await registerColorPick();
+    if (shouldShow) {
+      setShowRateModal(true);
+    }
 
+  };
   return (
     <div className="p-4 max-w-90 mx-auto min-h-screen flex flex-col gap-4 bg-radial-primary">
+      <RateExtensionModal
+        open={showRateModal}
+        onClose={() => setShowRateModal(false)}
+      />
       {/* Header */}
       <div className="flex items-center justify-between">
         <Title className="text-foreground/90" text={chrome.i18n.getMessage("extension_name")} align="left" size="lg" />
@@ -34,7 +48,7 @@ export function App() {
           </Button>
         </div>
       </div>
-      <Button onClick={() => pickColor(history, maxHistory, setHistory, setColor)}>
+      <Button onClick={handlePickColor}>
         {chrome.i18n.getMessage("pick_color")}
       </Button>
       <Separator />
