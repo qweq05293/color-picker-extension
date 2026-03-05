@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Star } from "lucide-react";
+import { markExtensionRated } from "@/lib/rate";
 
 const WEBSTORE_URL =
   "https://chromewebstore.google.com/detail/YOUR_EXTENSION_ID";
@@ -21,7 +22,7 @@ export function RateExtensionModal({ open, onClose }: Props) {
     setRating(value);
 
     if (value >= 4) {
-      // await markExtensionRated();
+      await markExtensionRated();
       window.open(WEBSTORE_URL, "_blank");
       onClose();
     }
@@ -34,6 +35,7 @@ export function RateExtensionModal({ open, onClose }: Props) {
 
     window.location.href = mail;
     // markExtensionRated();
+    setRating(null);
     onClose();
   }
 
