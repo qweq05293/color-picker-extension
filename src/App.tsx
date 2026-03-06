@@ -12,7 +12,7 @@ import { RateExtensionModal } from "./components/rate-extension-modal";
 import { registerColorPick } from "./lib/rate";
 
 export function App() {
-  const [color, setColor] = useState<string | null>(INIT_COLOR);
+  const [color, setColor] = useState<string>(INIT_COLOR);
   const [history, setHistory] = useState<string[]>([INIT_COLOR]);
   const [isPro] = useState<boolean>(true);
   const [showRateModal, setShowRateModal] = useState(false);
@@ -68,15 +68,15 @@ export function App() {
       <div>
         <div className="flex justify-between items-center mb-2">
           <span className="text-sm font-semibold">
-            Colors History ({history.length}/{maxHistory})
+            {chrome.i18n.getMessage("history")} ({history.length}/{maxHistory})
           </span>
           <div className="flex gap-2">
-            <Button size="sm" onClick={() => clearHistory(setHistory)}>
-              Clear
+            <Button size="sm" onClick={() => clearHistory(setHistory,setColor)}>
+              {chrome.i18n.getMessage("clear")}
             </Button>
             {isPro && (
               <Button size="sm" onClick={() => downloadHistory(history)}>
-                Download
+                {chrome.i18n.getMessage("download_history")}
               </Button>
             )}
           </div>
