@@ -13,6 +13,7 @@ type Props = {
 };
 
 export function RateExtensionModal({ open, onClose }: Props) {
+  const [hovered, setHovered] = useState<number | null>(null);
   const [rating, setRating] = useState<number | null>(null);
   const [feedback, setFeedback] = useState("");
 
@@ -33,8 +34,7 @@ export function RateExtensionModal({ open, onClose }: Props) {
       feedback
     )}`;
 
-    window.location.href = mail;
-    // markExtensionRated();
+    window.open(mail, "_blank");
     setRating(null);
     onClose();
   }
@@ -46,22 +46,33 @@ export function RateExtensionModal({ open, onClose }: Props) {
         {!rating && (
           <>
             <h3 className="text-lg font-semibold text-center">
-              Enjoying this extension?
+              {chrome.i18n.getMessage("enjoying_extension")}
             </h3>
 
             <p className="text-sm text-muted-foreground text-center">
-              Your feedback helps us improve ❤️
+              {chrome.i18n.getMessage("extension_feedback")}
             </p>
 
             <div className="flex justify-center gap-2 pt-2">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star
-                  key={star}
-                  size={28}
-                  className="cursor-pointer transition hover:scale-110 text-muted-foreground hover:text-yellow-400"
-                  onClick={() => handleRate(star)}
-                />
-              ))}
+              {[1, 2, 3, 4, 5].map((star) => {
+                const active = hovered ? star <= hovered : star <= (rating ?? 0);
+
+                return (
+                  <Star
+                    key={star}
+                    size={30}
+                    onMouseEnter={() => setHovered(star)}
+                    onMouseLeave={() => setHovered(null)}
+                    onClick={() => handleRate(star)}
+                    className={`
+          cursor-pointer transition-all duration-200
+          ${active
+                        ? "text-yellow-400 fill-yellow-400 scale-110"
+                        : "text-muted-foreground"}
+        `}
+                  />
+                );
+              })}
             </div>
           </>
         )}
@@ -69,17 +80,17 @@ export function RateExtensionModal({ open, onClose }: Props) {
         {rating && rating < 4 && (
           <>
             <h3 className="text-lg font-semibold text-center">
-              Sorry to hear that 😞
+              {chrome.i18n.getMessage("sorry_to_hear")}
             </h3>
 
             <p className="text-sm text-muted-foreground text-center">
-              Tell us what we can improve.
+              {chrome.i18n.getMessage("tell_us_what")}
             </p>
 
             <textarea
               className="w-full border rounded-md p-2 text-sm"
               rows={3}
-              placeholder="Your feedback..."
+              placeholder={chrome.i18n.getMessage("your_feedback")}
               value={feedback}
               onChange={(e) => setFeedback(e.target.value)}
             />
@@ -88,7 +99,7 @@ export function RateExtensionModal({ open, onClose }: Props) {
               onClick={sendFeedback}
               className="w-full rounded-md bg-primary text-primary-foreground py-2 text-sm hover:opacity-90"
             >
-              Send feedback
+              {chrome.i18n.getMessage("send_feedback")}
             </button>
           </>
         )}

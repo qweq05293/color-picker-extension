@@ -38,7 +38,8 @@ export function downloadHistory(history: string[]) {
   URL.revokeObjectURL(url);
 }
 
-export function clearHistory(setHistory: (history: string[]) => void) {
+export function clearHistory(setHistory: (history: string[]) => void, setColor: (color: string) => void) {
   chrome.storage.local.set({ history: [INIT_COLOR] });
   setHistory([INIT_COLOR]);
+  setColor(INIT_COLOR);
 }

@@ -16,5 +16,35 @@
   },
   "cancel": {
     "message": "Отмена"
+  },
+  "enjoying_extension": {
+    "message": "Вам нравится это расширение?"
+  },
+  "extension_feedback": {
+    "message": "Ваш отзыв помогает нам улучшаться ❤️"
+  },
+  "sorry_to_hear": {
+    "message": "Жаль это слышать 😞"
+  },
+  "tell_us_what": {
+    "message": "Расскажите, что мы можем улучшить."
+  },
+  "your_feedback": {
+    "message": "Ваш отзыв..."
+  },
+  "send_feedback": {
+    "message": "Отправить отзыв"
+  },
+  "copied_to_clipboard": {
+    "message": "Скопировано в буфер обмена!"
+  },
+  "history": {
+    "message": "История цветов"
+  },
+  "clear":{
+    "message": "Очистить"
+  },
+  "download_history": {
+    "message": "Скачать"
   }
 }

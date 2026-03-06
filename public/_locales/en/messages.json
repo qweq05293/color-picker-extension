@@ -16,5 +16,35 @@
   },
   "cancel": {
     "message": "Cancel"
+  },
+  "enjoying_extension": {
+    "message": "Enjoying this extension?"
+  },
+  "extension_feedback": {
+    "message": "Your feedback helps us improve ❤️"
+  },
+  "sorry_to_hear": {
+    "message": "Sorry to hear that 😞"
+  },
+  "tell_us_what": {
+    "message": "Tell us what we can improve."
+  },
+  "your_feedback": {
+    "message": "Your feedback..."
+  },
+  "send_feedback": {
+    "message": "Send feedback"
+  },
+  "copied_to_clipboard": {
+    "message": "Copied to clipboard!"
+  },
+  "history": {
+    "message": "Colors History"
+  },
+  "clear": {
+    "message": "Clear"
+  },
+  "download_history": {
+    "message": "Download"
   }
 }

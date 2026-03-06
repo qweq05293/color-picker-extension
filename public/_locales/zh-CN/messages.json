@@ -16,5 +16,35 @@
   },
   "cancel": {
     "message": "取消"
+  },
+  "enjoying_extension": {
+    "message": "喜欢这个扩展吗？"
+  },
+  "extension_feedback": {
+    "message": "您的反馈帮助我们改进 ❤️"
+  },
+  "sorry_to_hear": {
+    "message": "很抱歉听到这个 😞"
+  },
+  "tell_us_what": {
+    "message": "告诉我们我们可以改进什么。"
+  },
+  "your_feedback": {
+    "message": "您的反馈..."
+  },
+  "send_feedback": {
+    "message": "发送反馈"
+  },
+  "copied_to_clipboard": {
+    "message": "已复制到剪贴板！"
+  },
+  "history": {
+    "message": "颜色历史"
+  },
+  "clear": {
+    "message": "清除"
+  },
+  "download_history": {
+    "message": "下载"
   }
 }
