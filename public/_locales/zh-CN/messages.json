@@ -1,9 +1,9 @@
 {
   "extension_name": {
-    "message": "Collor Picker Tools"
+    "message": "Color Picker & Eyedropper: Grab HEX/RGB codes"
   },
   "extension_description": {
-    "message": "一个简单的屏幕颜色拾取器扩展程序"
+    "message": "完美的颜色选择器。利用内置的历史记录和自定义选项，立即从任何网站提取像素代码（HEX、RGB）。"
   },
   "pick_color": {
     "message": "拾取颜色"
