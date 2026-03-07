@@ -2,6 +2,9 @@
   "extension_name": {
     "message": "Color Picker & Eyedropper: Grab HEX/RGB codes"
   },
+  "title": {
+    "message": "Color Picker Tools"
+  },
   "extension_description": {
     "message": "The ultimate Color Picker tool. Instantly grab pixel codes (HEX, RGB) from any website with a built-in history and customization."
   },

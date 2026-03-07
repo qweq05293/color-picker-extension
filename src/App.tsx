@@ -40,7 +40,7 @@ export function App() {
       />
       {/* Header */}
       <div className="flex items-center justify-between">
-        <Title className="text-foreground/90" text={chrome.i18n.getMessage("extension_name")} align="left" size="lg" />
+        <Title className="text-foreground/90" text={chrome.i18n.getMessage("title")} align="left" size="lg" />
         <div className="flex gap-2">
           <ModeToggle />
           <Button variant="ghost" size="icon" onClick={() => window.close()}>
@@ -71,7 +71,7 @@ export function App() {
             {chrome.i18n.getMessage("history")} ({history.length}/{maxHistory})
           </span>
           <div className="flex gap-2">
-            <Button size="sm" onClick={() => clearHistory(setHistory,setColor)}>
+            <Button size="sm" onClick={() => clearHistory(setHistory, setColor)}>
               {chrome.i18n.getMessage("clear")}
             </Button>
             {isPro && (

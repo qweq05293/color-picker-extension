@@ -1,5 +1,6 @@
 import { toast } from "sonner";
 import { saveHistory } from "./history";
+import { copyTextToClipboard } from "./clipboard";
 
 export async function pickColor(
   history: string[],
@@ -17,6 +18,7 @@ export async function pickColor(
   try {
     const result = await eyeDropper.open();
     setColor(result.sRGBHex);
+    await copyTextToClipboard(result.sRGBHex, false);
     toast.success((chrome.i18n.getMessage("color_picked")) + result.sRGBHex);
     await saveHistory(result.sRGBHex, history, maxHistory, setHistory);
   } catch {
