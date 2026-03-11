@@ -4,7 +4,7 @@ import { markExtensionRated } from "@/lib/rate";
 import { Button } from "./ui/button";
 
 const WEBSTORE_URL =
-  "https://chromewebstore.google.com/detail/YOUR_EXTENSION_ID";
+  "https://chromewebstore.google.com/detail/color-picker-eyedropper-g/pdehfhmplbmhdpnoienkkdnlngopipkj/reviews?utm_source=item-share-cb";
 
 const EMAIL = "KOTL.help.dev@gmail.com";
 

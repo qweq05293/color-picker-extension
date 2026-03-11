@@ -1,6 +1,6 @@
 const PICKS_KEY = "color_picks_count";
 const RATED_KEY = "extension_rated";
-const PICK_LIMIT = 5
+const PICK_LIMIT = 15
 
 export async function registerColorPick(): Promise<boolean> {
   const data = await chrome.storage.local.get([PICKS_KEY, RATED_KEY]);
